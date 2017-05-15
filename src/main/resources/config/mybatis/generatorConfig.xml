@@ -24,7 +24,7 @@
 
         <sqlMapGenerator
                 targetPackage="${sqlMapperPackage}"
-                targetProject="${src_main_java}">
+                targetProject="${src_main_resources}">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
