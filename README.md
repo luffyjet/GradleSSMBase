@@ -23,4 +23,4 @@ build.gradle文件内配置了mybatis-generator的Task(mybatisGenerate)，用于
 
 [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
 
-[http://www.mybatis.org/spring/zh/batch.html](http://www.mybatis.org/spring/zh/batch.html)
+[http://www.mybatis.org/spring/zh/index.html](http://www.mybatis.org/spring/zh/index.html)
