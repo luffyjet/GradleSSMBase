@@ -25,6 +25,9 @@ dependencies {
     testCompile "junit:junit:${junitVersion}"
     testCompile "org.springframework:spring-test:${springVersion}"
 
+    compile "javax.servlet:jstl:${jstlVersion}"
+    providedCompile "javax.servlet:servlet-api:${servletApiVersion}"
+
     compile "org.springframework:spring-webmvc:${springVersion}"
     compile "org.springframework:spring-tx:${springVersion}"
     compile "org.springframework:spring-jdbc:${springVersion}"
@@ -37,6 +40,11 @@ dependencies {
     compile "mysql:mysql-connector-java:${mysqlConnectorVersion}"
 
     compile "com.alibaba:fastjson:${fastjsonVersion}"
+
+    compile "log4j:log4j:${log4jVersion}"
+
+    compile "org.apache.commons:commons-dbcp2:${dbcpVersion}"
+
 
     mybatisGenerator "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
     mybatisGenerator "mysql:mysql-connector-java:${mysqlConnectorVersion}"

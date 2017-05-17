@@ -16,5 +16,7 @@
 
     <mappers>
         <mapper resource="config/mybatis/mapper/WebsitesMapper.xml"/>
+        <mapper resource="config/mybatis/mapper/ArticleMapper.xml"/>
+        <mapper resource="config/mybatis/mapper/UserMapper.xml"/>
     </mappers>
 </configuration>
