@@ -1,19 +1,16 @@
 package com.luffyjet.gweb.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
+import com.luffyjet.gweb.mapper.CountryMapper;
 import com.luffyjet.gweb.mapper.UserMapper;
-import com.luffyjet.gweb.model.Article;
-import com.luffyjet.gweb.model.BaseResult;
-import com.luffyjet.gweb.model.User;
-import com.luffyjet.gweb.model.UserExample;
+import com.luffyjet.gweb.model.*;
+import com.luffyjet.gweb.service.CountryService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,10 @@ public class DemoController {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    private CountryService countryService;
+
 
     @RequestMapping(
             value = "/userInfo/{name}",
@@ -54,5 +55,23 @@ public class DemoController {
             return new BaseResult(false, "当前用户没有文章").toJSON();
         }
         return new BaseResult(articles).toJSON();
+    }
+
+
+    @RequestMapping(
+            value = "/CountryList",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String getCountryList(@RequestParam(required = false, defaultValue = "1") int page,
+                                 @RequestParam(required = false, defaultValue = "10") int rows) {
+
+        List<Country> countryList = countryService.selectByCountry(null, page, rows);
+        PageInfo<Country> pageInfo = new PageInfo<>(countryList);
+
+
+        if (countryList.size() == 0) {
+            return new BaseResult(false, "当前用户没有文章").toJSON();
+        }
+        return new BaseResult(pageInfo).toJSON();
     }
 }

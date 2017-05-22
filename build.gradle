@@ -36,18 +36,18 @@ dependencies {
     compile "org.mybatis:mybatis:${mybatisVesion}"
     compile "org.mybatis:mybatis-spring:${mybatisSpringVersion}"
     compile "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
-
     compile "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+//    compile "tk.mybatis:mapper:${tkMybatisMapperVesion}"
 
     compile "com.alibaba:fastjson:${fastjsonVersion}"
-
     compile "log4j:log4j:${log4jVersion}"
-
     compile "org.apache.commons:commons-dbcp2:${dbcpVersion}"
-
 
     mybatisGenerator "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
     mybatisGenerator "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+//    mybatisGenerator "tk.mybatis:mapper:${tkMybatisMapperVesion}"
+
+    compile "com.github.pagehelper:pagehelper:${pagehelperVersion}"
 }
 
 

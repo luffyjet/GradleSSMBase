@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC" />
-            <!-- 配置数据库连接信息 -->
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://10.211.55.8:3306/employees" />
-                <property name="username" value="root" />
-                <property name="password" value="123Abc!.cn" />
-            </dataSource>
-        </environment>
-    </environments>
+    <!--<environments default="development">-->
+        <!--<environment id="development">-->
+            <!--<transactionManager type="JDBC" />-->
+            <!--&lt;!&ndash; 配置数据库连接信息 &ndash;&gt;-->
+            <!--<dataSource type="POOLED">-->
+                <!--<property name="driver" value="com.mysql.jdbc.Driver" />-->
+                <!--<property name="url" value="jdbc:mysql://10.211.55.8:3306/employees" />-->
+                <!--<property name="username" value="root" />-->
+                <!--<property name="password" value="123Abc!.cn" />-->
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
 
-    <mappers>
-        <mapper resource="config/mybatis/mapper/WebsitesMapper.xml"/>
-        <mapper resource="config/mybatis/mapper/ArticleMapper.xml"/>
-        <mapper resource="config/mybatis/mapper/UserMapper.xml"/>
-    </mappers>
+    <!--<mappers>-->
+        <!--<mapper resource="config/mybatis/mapper/WebsitesMapper.xml"/>-->
+        <!--<mapper resource="config/mybatis/mapper/ArticleMapper.xml"/>-->
+        <!--<mapper resource="config/mybatis/mapper/UserMapper.xml"/>-->
+    <!--</mappers>-->
+    <plugins>
+        <!-- 分页插件 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+            <property name="offsetAsPageNum" value="true"/>
+            <property name="pageSizeZero" value="true"/>
+            <property name="reasonable" value="true"/>
+            <property name="supportMethodsArguments" value="false"/>
+            <property name="rowBoundsWithCount" value="true"/>
+        </plugin>
+    </plugins>
+
 </configuration>
